@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { useNavigate, useParams } from "react-router-dom";
-import { crearContactos, editandoContacto } from "./apiService";
+import { crearContactos, editandoContacto } from "../service/apiService";
 
 export const Form = () => {
 
@@ -47,11 +47,11 @@ export const Form = () => {
 
         //peticion a la API para agregar o editar el contacto
         if(editado){
-            editandoContacto(contacto, navigate, dispatch)
+            editandoContacto(contacto.id, contacto, dispatch)
 
         }
-        else crearContactos(contacto)
-
+        else crearContactos(contacto,dispatch)
+        navigate("/")
     }
 
 
@@ -107,9 +107,9 @@ const contactoaEditar = () =>{
                 />
                 <input className="form-control mb-2"
                     type="text"
-                    placeholder="mail"
-                    value={contacto.mail}
-                    name="mail"
+                    placeholder="email"
+                    value={contacto.email}
+                    name="email"
                     onChange={handleInputsChange}
                 />
                 <button className="btn-btn-success w-100" type="submit">guardar</button>
