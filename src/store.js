@@ -1,32 +1,38 @@
-export const initialStore=()=>{
-  return{
-    message: null,
-    todos: [
-      {
-        id: 1,
-        title: "Make the bed",
-        background: null,
-      },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
-      }
-    ]
+export const initialStore = () => {
+  return {
+    contactos: [],
+
   }
 }
 
 export default function storeReducer(store, action = {}) {
-  switch(action.type){
-    case 'add_task':
+  switch (action.type) {
+    case 'traer_contactos':
+      return {
+        ...store,
+        contactos: action.payload
+      }
 
-      const { id,  color } = action.payload
+    default:
+      throw Error('Unknown action.');
+
+
+
+    case 'crear_contacto':
+      return {
+        ...store,
+        contacto: action.payload
+
+      }
+
+    case 'borrar_contacto':
+      const borrar_contacto = store.contactos.filter(contacto => contacto.id !== Number(action.payload))
 
       return {
         ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
-      };
-    default:
-      throw Error('Unknown action.');
-  }    
+        contactos: borrar_contacto,
+
+      }
+
+  }
 }
