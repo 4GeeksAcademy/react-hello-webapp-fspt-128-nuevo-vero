@@ -8,7 +8,7 @@ const crearAgenda = async () => {
 
     if(response.ok){
         traerContactos()
-        return
+        
     }
 }
 export const traerContactos = async (dispatch) => {
@@ -16,7 +16,7 @@ export const traerContactos = async (dispatch) => {
     if (!response.ok) {
         console.log('La agenda no existe');
        crearAgenda()
-        return
+      
     }
     const data = await response.json()
     dispatch({ type: 'traer_contactos', payload: data.contacts })

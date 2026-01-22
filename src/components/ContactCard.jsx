@@ -11,7 +11,7 @@ export const ContactCard = ({ contacto }) => {
 
   return (
     <li className="d-flex justify-content-center flex-row m-3 p-2 border border secondary rounded contacto ">
-      <div className="row w-100">
+      <div className="row w-100 bg-white">
         <div className="col-md-3 photo">
           <img src="https://imgs.search.brave.com/pvXbsw8nvjxu5VaAqWK-K5AoE-nx-9DzrlzMlCioBDc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvYmFi/eS1jYXQtcGljdHVy/ZXMtazA5ZHlvcjJj/NHBkOHNubS5qcGc"
             className="rounded-circle"
